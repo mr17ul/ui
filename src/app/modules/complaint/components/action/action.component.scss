@@ -1,0 +1,23 @@
+.row{
+    width: 100%;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.row button{
+    min-width: 10em;
+    margin-left: 1em;
+}
+
+.log{
+    font-size: small;
+    font-style: italic;
+}
+

@@ -1,0 +1,17 @@
+.selectionWrapper{
+    display: flex;
+}
+
+mat-selection-list{
+    overflow: auto;
+    height: 30em;
+}
+
+.mat-divider{
+    margin: 0px 40px;
+}
+
+.selectionWrapper span{
+    padding:1em 0;
+    display: inline-block;
+}

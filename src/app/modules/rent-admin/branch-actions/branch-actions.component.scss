@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-row {
+    cursor: pointer;
+  }
+  .tr.mat-header-row, .mat-header-cell, .mat-header-row{
+    background-color: #b7c0c8 !important;
+    color: #040d16 !important;
+    font-size: medium !important;
+  }
+  .mat-row:hover {
+    background-color: gainsboro;
+  }

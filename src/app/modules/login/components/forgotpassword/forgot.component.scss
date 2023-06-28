@@ -1,0 +1,37 @@
+.errorMsg {
+    color: red;
+}
+
+.successMsg{
+    color: green;
+}
+
+h4{
+    color: darkslategrey;
+}
+
+.wrapper {
+    border-radius: 3px;
+    background-color: white;
+    padding: 2.5em 3em;
+    min-width: 30em;;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.outer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}

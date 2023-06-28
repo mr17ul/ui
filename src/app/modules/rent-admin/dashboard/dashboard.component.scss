@@ -1,0 +1,31 @@
+.mat-button-toggle-checked{
+    background-color: rgb(51, 102, 204);
+    color: white;
+}
+
+.cardWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+mat-card{
+    margin-left: 1em;
+    margin-top:1em;
+    width: 9em;
+    border: 0.5px solid #102d48;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.cardValue{
+    margin-top: 8px;
+    font-size: 1.5vw;
+    text-align: center;
+    color: #102d48;
+    font-weight: bold;
+}
+
+.cardTitle{
+    color: grey;
+    text-align: center;
+}

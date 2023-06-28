@@ -1,0 +1,12 @@
+<div class="outer">
+    <div class="wrapper">
+        <h4>Reset your password</h4>
+        <mat-form-field appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="text">
+        </mat-form-field>
+        <span class="errorMsg">{{error}}</span>
+        <span class="successMsg">{{success}}</span>
+        <button mat-raised-button color="primary" (click)="forgotPassword()">Send email</button>
+    </div>
+</div>

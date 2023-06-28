@@ -1,0 +1,124 @@
+<form #stepOneForm="ngForm" [formGroup]="cmplntForm">
+
+    <div>
+        <mat-progress-bar *ngIf="working" mode="indeterminate"></mat-progress-bar>
+        <h3>Raise a complaint</h3>
+        <div class="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank/FI</mat-label>
+                <mat-select [(value)]="complaint.bank" name="bank" formControlName="fcbank"
+                    (selectionChange)="onBankChange()">
+                    <mat-option *ngFor="let bank of banks" [value]="bank">
+                        {{bank.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select [(value)]="complaint.branch.district.state" name="State" formControlName="fcstate"
+                    (selectionChange)="onStateChange()">
+                    <mat-option *ngFor="let state of states" [value]="state">
+                        {{state.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>District</mat-label>
+                <mat-select [(value)]="complaint.branch.district" name="District" formControlName="fcdistrict"
+                    (selectionChange)="onDistrictChange()">
+                    <mat-option *ngFor="let district of districts" [value]="district">
+                        {{district.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>Branch</mat-label>
+                <mat-select [(value)]="complaint.branch" name="branch" formControlName="fcbranch">
+                    <mat-option *ngFor="let branch of branches" [value]="branch">
+                        {{branch.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Member name</mat-label>
+                <input matInput [(ngModel)]="complaint.memberName" name="memberName" formControlName="fcmemberName"
+                    placeholder="Savitri Shukla">
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>Member Id</mat-label>
+                <input matInput [(ngModel)]="complaint.memberId" name="memberId" formControlName="fcmemberId"
+                    placeholder="CIN22432">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile </mat-label>
+                <input matInput [(ngModel)]="complaint.mobileNo" type="number" name="mobile" formControlName="fcmobile"
+                    placeholder="9999999999">
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="complaint.email" type="email" name="email" formControlName="fcemail"
+                    placeholder="abc@xyz.com">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Group name</mat-label>
+                <input matInput [(ngModel)]="complaint.groupName" name="groupName" formControlName="fcgroupName"
+                    placeholder="Group 1">
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>Group Id</mat-label>
+                <input matInput [(ngModel)]="complaint.groupId" name="groupId" formControlName="fcgroupId"
+                    placeholder="JLG1">
+            </mat-form-field>
+        </div>
+        <div class="row">
+
+
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Complaint Category</mat-label>
+                <mat-select [(value)]="complaint.category" name="ComplaintCategory"
+                    formControlName="fcComplaintCategory">
+                    <mat-option *ngFor="let category of complaintsCategories" [value]="category">
+                        {{category.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Brief Details of the Complaint</mat-label>
+                <textarea type="text" matInput [(ngModel)]="complaint.details" name="details"
+                    formControlName="fcdetails" placeholder="JLG1"></textarea>
+            </mat-form-field>
+
+        </div>
+        <div class="row">
+            <attachment #attachments></attachment>
+        </div>
+        <div class="row action">
+
+            <button mat-raised-button color="primary" (click)="createComplaint()">Create</button>
+        </div>
+    </div>
+</form>

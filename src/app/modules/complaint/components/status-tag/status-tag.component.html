@@ -1,0 +1,2 @@
+<span *ngIf="action" class="logStatus {{action.actionTaken}} {{noText?'mini' : 'full'}}">{{action.actionTaken}}</span>
+<span *ngIf="!action" class="logStatus new {{noText?'mini' : 'full'}}">New</span>

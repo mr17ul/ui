@@ -1,0 +1,18 @@
+<div class="outer">
+    <div class="wrapper" [formGroup]="form">
+        <h4>Create a new password</h4>
+        <mat-form-field appearance="outline">
+            <mat-label>New password</mat-label>
+            <input matInput [(ngModel)]="password"  type="password" formControlName="password">
+            <span class="errorMsg" *ngIf="(form.get('password').dirty || form.get('password').touched) && form.get('password').errors?.required">Required</span>
+            <span class="errorMsg" *ngIf="form.get('password').errors?.pattern">Password should have atleast 1 uppercase, 1 lowercase, 1 number, 1 special character and minimum of 8 characters</span>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm password</mat-label>
+            <input matInput [(ngModel)]="confirmPassword"  type="password" formControlName="confirmpassword">
+        </mat-form-field>
+        <span class="errorMsg">{{error}}</span>
+        <span class="successMsg">{{success}}</span>
+        <button mat-raised-button color="primary" (click)="resetPassword()">Change password</button>
+    </div>
+</div>

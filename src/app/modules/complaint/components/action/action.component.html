@@ -1,0 +1,18 @@
+<p *ngIf="complaint.complaintActions != undefined">Log</p>
+<div *ngFor="let action of complaint.complaintActions">
+    <status-tag [action]="action"></status-tag>&nbsp;&nbsp;
+    <span class="log">{{action.created_at|date}}&nbsp;&nbsp;&nbsp;&nbsp;{{action.remarks}}</span> 
+</div>
+<div *ngIf="showCreateAction()">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Remarks</mat-label>
+            <textarea type="text" matInput [(ngModel)]="complaintAction.remarks"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="row action">
+        <button mat-raised-button color="warn" (click)="forward()">Forward</button>
+        <button mat-raised-button color="primary" (click)="resolve()">Resolve</button>
+    </div>
+
+</div>

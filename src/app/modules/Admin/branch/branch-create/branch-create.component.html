@@ -1,0 +1,43 @@
+<form #stepOneForm="ngForm" [formGroup]="frmBranch">
+    
+    <div>
+        <mat-progress-bar *ngIf="working" mode="indeterminate"></mat-progress-bar>
+        <h3>Create Branch</h3>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select [(value)]="selectedState" name="state" formControlName="fcstate" (selectionChange)="onStateChange()">
+                    <mat-option *ngFor="let state of states" [value]="state">
+                        {{state.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>District</mat-label>
+                <mat-select  [(ngModel)]="branch.district" name="District" formControlName="fcdistrict"  (selectionChange)="onDistrictChange()">
+                    <mat-option *ngFor="let district of districts" [value]="district">
+                        {{district.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch</mat-label>  
+                 <input matInput [(ngModel)]="branch.name" name="name"  formControlName="fcbranchname" placeholder="CIN22432">
+            
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea type="text" matInput [(ngModel)]="branch.description " name="description" formControlName="fcDesc"   placeholder="JLG1"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row action">
+            <button mat-raised-button (click)="cancel()" id="cancel" >Cancel</button>
+            <button mat-raised-button color="primary"  (click)="createBranch()">Create</button>
+        </div>
+    </div>
+    </form>

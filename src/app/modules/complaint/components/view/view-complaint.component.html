@@ -1,0 +1,72 @@
+<h3>Complaint #{{complaint.id}}</h3>
+<div class="wrapper">
+    <div class="row">
+        <div class="field"><span>Bank/FI</span>
+            <p>{{complaint.bank.name}}</p>
+        </div>
+        <div class="field"><span>Branch</span>
+            <p>{{complaint.branch.name}}</p>
+        </div>
+        <div class="field"><span>District</span>
+            <p>{{complaint.branch.district.name}}</p>
+        </div>
+        <div class="field"><span>State</span>
+            <p>{{complaint.branch.district.state.name}}</p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="row">
+        <div class="field"><span>Member Id</span>
+            <p>{{complaint.memberId}}</p>
+        </div>
+        <div class="field"><span>Member name</span>
+            <p>{{complaint.memberName}}</p>
+        </div>
+        <div class="field"><span>Group Id</span>
+            <p>{{complaint.groupId}}</p>
+        </div>
+        <div class="field"><span>Group name</span>
+            <p>{{complaint.groupName}}</p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="row">
+        <div class="field"><span>Mobile</span>
+            <p>{{complaint.mobileNo}}</p>
+        </div>
+        <div class="field"><span>Email</span>
+            <p>{{complaint.email}}</p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="row">
+        <div class="field"><span>Category</span>
+            <p>{{complaint.category.name}}</p>
+        </div>
+        <div class="field"><span>Complaint date</span>
+            <p>{{complaint.complaintDate|date}}</p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="row">
+        <div class="field"><span>Complaint details</span>
+            <p>{{complaint.details}}</p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <div class="row">
+        <div class="field"><span>Attachments</span>
+            <p>
+                <span *ngFor="let attachment of complaint.attachments">
+                    <mat-icon class="attachIcon">attach_file</mat-icon>
+                    <a href="{{baseUrl}}{{attachment.url}}">{{attachment.name}}</a>
+                </span>
+            </p>
+        </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+
+    <div class="row">
+        <complaint-action [complaint]="complaint"></complaint-action>
+    </div>
+</div>

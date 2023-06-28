@@ -1,0 +1,60 @@
+<form #stepOneForm="ngForm" [formGroup]="frmFeedback">
+    <div class="contentWrapper">
+        <div class="content">
+            <h3>Customer Care</h3>
+            <p>For any customer-related queries and complaints,<br/>
+                Please call or write to us at :</p>
+
+            <p>Helpline Nos. (Zone-wise)</p>
+
+            <p>Working Day/Hours: Monday to Saturday # (10 am to 6 pm) <br/>
+                # excluding 2 nd &amp; 4 th Saturdays</p>
+
+            <p>Email Id: <a href="mailto:customercomplaint@nocpl.in">customercomplaint@nocpl.in</a></p>
+        </div>
+        <div class="content">
+            <h3>Leave a Message:</h3>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Your name</mat-label>
+                    <input matInput [(ngModel)]="feedback.name" name="name" formControlName="fcname" placeholder="xyz">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="feedback.email" type="email" name="email" formControlName="fcemail"
+                        placeholder="xyz@abc.com">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mobile</mat-label>
+                    <input matInput [(ngModel)]="feedback.mobile" type="number" name="mobile" formControlName="fcmobile"
+                        placeholder="9999999999">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Subject</mat-label>
+                    <input matInput [(ngModel)]="feedback.subject" name="subject" formControlName="fcsubject"
+                        placeholder="subject">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Message</mat-label>
+                    <textarea type="text" matInput [(ngModel)]="feedback.message " name="message"
+                        formControlName="fcmessage" placeholder="Enter your message here..."></textarea>
+                </mat-form-field>
+                <p style="width: 50%; margin-left: 6%;">Declaration: I confirm that the information provided by me is
+                    correct and I authorize NOCPL or its authorized official to contact me.</p>
+            </div>
+            <div class="row action">
+                <button mat-raised-button color="primary" class="submitfeedback"
+                    (click)="submitFeedback()">Submit</button>
+            </div>
+        </div>
+        
+    </div>
+</form>

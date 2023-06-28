@@ -1,0 +1,41 @@
+<h3> Dashboard </h3>
+
+<div class="cardWrapper" *ngIf="ready">
+    <mat-card>
+        <mat-card-subtitle class="cardTitle">Total Rent</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.totalRentForMonth | currency:'INR'}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-subtitle class="cardTitle">Security Deposit</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.totalSecurityDep | currency:'INR'}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-subtitle class="cardTitle">Average Rent</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.avgRent | currency:'INR'}}</mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-subtitle class="cardTitle">Total Branches</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.branchCount}}</mat-card-content>
+    </mat-card>
+    <mat-card (click)="drillDown(dashboardData.agreementExpiring,'expiring')">
+        <mat-card-subtitle class="cardTitle">Expiring Agreement</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.agreementExpiring.length}}</mat-card-content>
+    </mat-card>
+    <mat-card (click)="drillDown(dashboardData.totalIncrementThisMonth,'increment')">
+        <mat-card-subtitle class="cardTitle">Total Increments</mat-card-subtitle>
+        <mat-card-content class="cardValue">{{dashboardData.totalIncrementThisMonth.length}}</mat-card-content>
+    </mat-card>
+</div>
+
+<br />
+<h3>State-wise Data</h3>
+<div class="statewiseWrapper">
+    <mat-button-toggle-group (change)="onDataToggle($event)" [value]="selectedData">
+        <mat-button-toggle value="TOTAL_RENT">Total rent</mat-button-toggle>
+        <mat-button-toggle value="TOTAL_BRANCHES">Total branches</mat-button-toggle>
+        <mat-button-toggle value="AGREEMENT_EXP">Agreement expiring</mat-button-toggle>
+        <mat-button-toggle value="INCREMENT_BRANCHES">Increments</mat-button-toggle>
+    </mat-button-toggle-group>
+    <br />
+    <google-chart [data]="geoChart" (chartSelect)='select($event)' *ngIf="ready"></google-chart>
+</div>

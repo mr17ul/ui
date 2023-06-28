@@ -1,0 +1,36 @@
+.row {
+    display: flex;
+}
+
+.field {
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-divider {
+    padding: 0.3em 0;
+}
+
+.field p{
+    font-weight: 500;
+    font-size: smaller;
+}
+
+.field span{
+    font-size: smaller;
+    font-weight: bolder;
+}
+
+complaint-action{
+    width: 100%;
+}
+
+.attachIcon{
+    font-size: small;
+    width: 12px;
+    height: 12px;
+}

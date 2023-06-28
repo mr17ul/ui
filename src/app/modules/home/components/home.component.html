@@ -1,0 +1,61 @@
+<div id="wrapper">
+  <mat-toolbar color="primary" class="mat-elevation-z10">
+    <button mat-icon-button color="white" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span id="logo"></span>
+    <span class="logotext">NEW OPPORTUNITY </span>
+    <span class="title">Rent Management </span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button color="white" (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="!isNarrowWidth" id="menu" #drawer>
+      <div class="user_menu">
+        <mat-nav-list>
+          <a mat-list-item>
+            <mat-icon>account_circle</mat-icon>
+            <span>{{ user.email }} </span>
+          </a>
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-nav-list>
+        <a mat-list-item routerLink="dashboard"  routerLinkActive="active">
+          <mat-icon>analytics</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="list-rent"  routerLinkActive="active">
+          <mat-icon>assignment</mat-icon>
+          <span>Rent Management</span>
+        </a> 
+        <a mat-list-item routerLink="utr-upload"  routerLinkActive="active">
+          <mat-icon>cloud_upload</mat-icon>
+          <span>UTR Upload</span>
+        </a>  
+        <a mat-list-item routerLink="monthly-rent-report"  routerLinkActive="active">
+          <mat-icon>fact_check</mat-icon>
+          <span>Monthly Rent Report</span>
+        </a>
+        <a mat-list-item routerLink="branch-actions"  routerLinkActive="active">
+          <mat-icon>fact_check</mat-icon>
+          <span>Rent Options</span>
+        </a>
+        <a mat-list-item routerLink="branch-statement"  routerLinkActive="active">
+          <mat-icon>fact_check</mat-icon>
+          <span>Branch Statement</span>
+        </a>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div>
+        <mat-card>
+          <router-outlet></router-outlet>
+        </mat-card>
+      </div>
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+</div>

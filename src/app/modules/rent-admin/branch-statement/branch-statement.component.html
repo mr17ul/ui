@@ -1,0 +1,22 @@
+<mat-form-field appearance="outline">
+    <mat-label>Rent Master</mat-label>
+    <mat-select [(ngModel)]="rentMaster">
+        <mat-option *ngFor="let rentMaster of rentMasters" [value]="rentMaster">{{rentMaster.branch.name}}</mat-option>
+    </mat-select>
+</mat-form-field>
+&nbsp;
+<mat-form-field>
+    <mat-label>From Date</mat-label>
+    <input matInput readonly [(ngModel)]="fromDate" [matDatepicker]="picker1" required>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+&nbsp;
+<mat-form-field>
+    <mat-label>To Date</mat-label>
+    <input matInput readonly [(ngModel)]="toDate" [matDatepicker]="picker2" required>
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+&nbsp;
+<button mat-button (click)="generateReport()">Generate</button>

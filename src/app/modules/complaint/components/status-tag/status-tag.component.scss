@@ -1,0 +1,26 @@
+.logStatus{
+    text-transform: uppercase;
+   color: white;
+   padding: 0.4em;
+   font-size: small;
+   border-radius: 4px;
+}
+
+.resolved{
+   background-color: green;
+}
+
+.forwarded{
+   background-color: orange;
+}
+
+.new{
+   background-color: grey;
+}
+
+.mini{
+   display: inline-block;
+   text-indent: -999px;
+   width: 1em;
+   height: 1em;
+}

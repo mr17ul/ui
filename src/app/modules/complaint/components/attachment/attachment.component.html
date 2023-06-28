@@ -1,0 +1,19 @@
+<input type="file" #file style="display: none" (change)="onFilesAdded()" multiple />
+<div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+    <div>
+        <button  mat-raised-button color="primary" class="add-files-btn"
+            (click)="addFiles()">
+            <mat-icon>attach_file</mat-icon>
+            Attach
+        </button>
+    </div>
+
+    <mat-chip-list multiple>
+        <mat-chip *ngFor="let file of files" (removed)="remove(file)">
+            <mat-icon >attach_file</mat-icon>
+            {{file.name}}
+            <mat-icon matChipRemove >cancel</mat-icon>
+        </mat-chip>
+
+    </mat-chip-list>
+</div>

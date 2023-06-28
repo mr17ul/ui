@@ -1,0 +1,59 @@
+
+
+.toolbar-spacer{
+    flex: 1 1 auto;
+}
+
+mat-drawer-content{
+    padding : 30px;
+    flex-grow: 2;
+    box-sizing: border-box;
+}
+
+mat-drawer{
+    padding: 10px;
+}
+
+#menu mat-icon{
+    padding-right: 5px;
+}
+
+a.active{
+    background-color: gainsboro;
+}
+
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer-container{
+    height: 100%;
+    display: flex;
+}
+.logotext{
+    vertical-align: middle;
+}
+
+.title{
+    margin-left: 25%;
+}
+
+#logo{
+    background-image: url('../../../../assets/images/nocpllogo.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 70px;
+    height: 51px;
+}
+
+@media only screen and (max-width:500px){
+    #logo{
+        width: 60px;
+    }
+
+    .title{
+        margin-left: 0;
+    }
+}

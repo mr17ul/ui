@@ -1,0 +1,48 @@
+<div id="login-overlay" class="modal-dialog" style="width: 96%;">
+    <div class="modal-content">
+        <div class="modal-header" style="height: 80px;">
+            <div id="cshero-header-logo" class="cshero-header-logo pull-left tab-logo">
+                <a href="index.html"><img alt="Logo"
+                        src="https://www.nocpl.in/wp-content/themes/wp-fcgroup/assets/images/logo.png"></a> </div>
+        </div>
+        <div class="modal-body container" style="color:darkblue">
+            <div class="col-sm">
+                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text">
+                    </mat-form-field>
+            
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password">
+                    </mat-form-field>
+            
+                    <re-captcha id="recaptcha" required (resolved)="resolved($event)"></re-captcha>
+            
+                    <a href="forgotpassword">Forgot password?</a>
+                    <p class="errorMsg">{{errorMsg}}</p>
+                    <button mat-raised-button cdkFocusInitial class="login-button btn btn-block" [disabled]="working" color="primary" (click)="login()">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer" style="color: darkslateblue;">
+            <div class="content">
+
+                <p style="text-align: left;">
+                    New Opportunity Consultancy Private Ltd. (NOCPL)
+                </p>
+                <p style="text-align: left;">
+
+                    Head Office: 707/708, CYBER ONE, Sector 30, Vashi, Navi Mumbai-400703
+                    <br />
+                    Grievance Redressal Officer: Mr.
+                    <br />
+                    Tel No. 022-20870050
+                    <br />
+                    Email Id:
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

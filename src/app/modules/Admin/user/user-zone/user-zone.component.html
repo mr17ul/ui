@@ -1,0 +1,44 @@
+<div>
+    <p>Username : {{userRegion.user.username}}</p>
+    <p>Email : {{userRegion.user.email}}</p>
+    <p>Emp Code : {{userRegion.user.empCode}}</p>
+    <p>Role : {{userRegion.user.role.name}}</p>
+
+    <p>Map either states, districts or branches to the user</p>
+
+    <div class="selectionWrapper">
+        <div>
+            <span>States</span>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-selection-list #states [(ngModel)]="userRegion.states" [compareWith]="compare"
+                [disabled]="userRegion.districts?.length > 0 || userRegion.branches?.length > 0">
+                <mat-list-option *ngFor="let s of statesList" [value]="s">
+                    {{s.name|titlecase}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <mat-divider vertical [inset]="true"></mat-divider>
+        <div>
+            <span>Districts</span>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-selection-list #districts [(ngModel)]="userRegion.districts" [compareWith]="compare"
+                [disabled]="userRegion.states?.length > 0 || userRegion.branches?.length > 0">
+                <mat-list-option *ngFor="let district of districtList" [value]="district">
+                    {{district.name|titlecase}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <mat-divider vertical [inset]="true"></mat-divider>
+        <div>
+            <span>Branches</span>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-selection-list #branches [(ngModel)]="userRegion.branches" [compareWith]="compareBranch"
+                [disabled]="userRegion.districts?.length > 0 || userRegion.states?.length > 0">
+                <mat-list-option *ngFor="let branch of branchList" [value]="branch">
+                    {{branch.name|titlecase}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+    </div>
+    <button color="primary" mat-raised-button (click)="mapUser()">Submit</button>
+</div>
